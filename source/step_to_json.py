@@ -103,9 +103,12 @@ def procValue(value : str) -> dict:
 
 result = {}
 
+# eg. CLOSED_SHELL
+rootID = input("Please input root ID\n")
+
 for key, value in dic.items():
     attributeId = value[:value.find('(')]
-    if attributeId == 'CLOSED_SHELL':
+    if attributeId == rootID:
         result = procValue(value)
         break
 
@@ -113,4 +116,4 @@ with open(jsonPath, 'w+') as file:
     jsonStr = json.dumps(result, indent=2)
     file.write(jsonStr)
 
-print("All Success!")
+print("Success!")
